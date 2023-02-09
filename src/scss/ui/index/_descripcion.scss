@@ -1,0 +1,129 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.descripcion {
+    width: 100%;
+    height: 100%;
+    background-color: v.$grisOscuro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include m.tablet {
+        height: 65vh;
+    }
+   
+    &__contenedord {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        @include m.flex(flex, column, space-around, center);
+
+        @include m.tablet {
+            height: 50vh;
+            width: 80%;
+        }
+    }
+
+    &__titulod {
+        width: 63%;
+        margin: 0 auto;
+    }
+
+    &__h4 {
+        font-size: clamp(2rem, 2.4vw, 3rem);
+        color: v.$blanco;
+        text-align: center;
+        font-weight: 400;
+        padding-bottom: 1.5rem;
+    }
+
+    &__parrafod {
+        font-size: clamp(1.5rem, 1.6vw, 1.8rem);
+        color: v.$blanco;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        line-height: 1.5;
+
+        @include m.tablet {
+            width: 70%;
+        }
+    }
+
+    &__gridd {
+        width: 80%;
+        margin: 0 auto;
+        @include m.grid(1, 1fr);
+
+        @include m.tablet {
+            @include m.grid(3, 1fr);
+        }
+    }
+
+    &__contd {
+        text-align: center;
+        
+        margin-bottom: 1.5rem;
+        @include m.flex(flex, column, space-between, center);
+
+        @include m.tablet {
+            height: 25rem;
+            margin-bottom: 0;
+           }
+    }
+
+    &__esqui {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        position: relative;
+        @include m.flex(flex, column, space-around, center);
+    }
+
+    &__esquinerosd {
+        width: auto;
+        height: clamp(4rem, 5vw, 6rem);
+        position: absolute;
+    }
+
+    &__h5d {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+        color: v.$blanco;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 1.9rem;
+        margin-bottom: clamp(1.5rem, 2.2vw, 3rem);
+    }
+
+    &__spand {
+        font-size: clamp(1rem, 1.2vw, 1.6rem);
+        color:  v.$blanco;
+        font-weight: 200;
+        text-align: center;
+    }
+
+    &__detalle {
+        &::before {
+            content: "x";
+            color: v.$blanco;
+            
+            font-family: 800;
+
+        }
+    }
+
+    &__lista {
+        color: v.$blanco;
+        margin-top: 2rem;
+    }
+
+    &__item {
+        text-align: center;
+        font-size: clamp(1rem, 1.2vw, 1.6rem);
+        color:  v.$blanco;
+        font-weight: 200;
+        padding: .5rem 0 .5rem 0;
+    }
+}

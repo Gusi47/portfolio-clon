@@ -1,0 +1,171 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.hero{
+
+    @include m.bgImage('../img/foto1.jpg');
+    width: 100%;
+    height: 100vh;
+
+        &__nav{
+            --state-close: scale(0);
+            --state-hamburguer:scale(1);
+            --state-menu: translate(-100%);
+
+            padding: 3rem;
+            display: grid;
+            justify-content: space-between;
+            align-items: center;
+            grid-template-columns: repeat(2, max-content);
+
+            &:target{
+                --state-menu: translate(0);
+                --state-close: scale(1);
+                --state-hamburguer:scale(0);
+            }
+
+            @include m.tablet {
+                --state-hamburguer:scale(0);
+                --state-menu: translate(0);
+
+                &:target{
+                    --state-close: scale(1);
+                }
+            }
+        }
+        
+        &__fotoh {
+            z-index: 90;
+            width:  8rem;
+            height: auto;
+             
+             @include m.tablet {
+                width: 10rem;
+             }
+        }
+
+        &__hamburguer, 
+        &__close {
+            z-index: 85;
+            cursor: pointer;
+            grid-column: -2/-1;
+            grid-row: 1/2;
+            transition: .4s transform;
+        }
+
+        &__hamburguer{
+            transform: var(--state-hamburguer);
+        }
+
+        &__close{
+            transform: var(--state-close);
+        }
+
+        &__icon{
+            width: 4rem;
+        }
+
+        &__links{
+            z-index: 80;
+            background-color: rgb(61, 56, 92);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0;
+            display: grid;
+            align-content: center;
+            gap: 2em;
+            padding-left: 5%;
+            transform: var(--state-menu);
+            transition: .3s transform;
+
+            @include m.tablet {
+                padding: 0;
+                background-color: unset;
+                position: unset;
+                gap: 1.5em;
+                grid-auto-flow: column;
+                transform: unset;
+                grid-column: -2/-1;
+                grid-row: 1/2;
+            }
+        }
+
+        &__item{
+            list-style: none;
+        }
+
+        &__link{
+            color: v.$blanco;
+            text-decoration: none;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 300ms;
+            padding: 1rem;
+
+           
+
+            @include m.tablet {
+                font-size: 1.3rem;
+                margin-left: 1rem;
+                letter-spacing: none;
+               
+
+                &:hover {
+                    background-color: red;
+                    border-radius: 0.5rem;
+                }
+            }
+    }
+
+
+    &__conth {     
+        width: auto;
+        height: 70vh;
+        text-align: center;
+        margin: 0 auto;
+       
+        @include m.flex(flex, column, center, center);
+    }
+
+    &__fondoh {
+        padding: 1.5rem;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__esquinerosh {
+        width: auto;
+        height: clamp(6rem, 9vw, 11rem);
+        position: absolute;
+    }
+
+    // &__parrafoh{
+    //     font-size:3rem;
+    //     color: v.$blanco;
+    //     font-weight: 400;
+    //     text-transform: uppercase;
+    // }
+
+    &__h1h {
+        font-size: clamp(2rem, 2.7vw, 3.2rem);
+        color: v.$blanco;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__spani1 {
+        font-size: clamp(1rem, 1.2vw, 1.6rem);
+        color:  v.$blanco;
+        font-weight: 200;
+      
+    }
+
+}
+
